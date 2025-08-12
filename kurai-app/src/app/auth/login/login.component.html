@@ -1,0 +1,18 @@
+<mat-card class="login-card">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email or Mobile Number</mat-label>
+      <input matInput formControlName="emailOrNumber" type="text" placeholder="example@mail.com or 9876543210">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password">
+    </mat-form-field>
+
+    
+    <button mat-raised-button color="primary" >Login</button>
+    <p>Don’t have an account?<a routerLink="/register"  > Register</a></p>
+  </form>
+</mat-card>

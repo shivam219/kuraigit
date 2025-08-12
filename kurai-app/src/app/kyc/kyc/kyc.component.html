@@ -1,0 +1,27 @@
+<mat-card class="kyc-card">
+  <h2>KYC Verification</h2>
+
+  <form [formGroup]="kycForm" (ngSubmit)="submitKyc()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>PAN Card Number</mat-label>
+      <input matInput formControlName="pan" placeholder="">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Aadhaar Number</mat-label>
+      <input matInput formControlName="aadhaar" placeholder="">
+    </mat-form-field>
+
+    <div class="upload-group">
+      <label class="upload-label">Upload PAN Card</label>
+      <input type="file" accept="image/*" (change)="onFileChange($event, 'panFile')" />
+    </div>
+
+    <div class="upload-group">
+      <label class="upload-label">Upload Aadhaar Card</label>
+      <input type="file" accept="image/*" (change)="onFileChange($event, 'aadhaarFile')" />
+    </div>
+
+    <button mat-raised-button color="primary" [disabled]="!kycForm.valid">Submit KYC</button>
+  </form>
+</mat-card>

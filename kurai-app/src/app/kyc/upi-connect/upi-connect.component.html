@@ -1,0 +1,20 @@
+<mat-card class="upi-card">
+  <h2>Connect UPI</h2>
+
+  <form [formGroup]="upiForm" (ngSubmit)="connectUPI()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Enter your UPI ID</mat-label>
+      <input matInput formControlName="upiId" placeholder="e.g. username@upi" />
+      <mat-error *ngIf="upiForm.get('upiId')?.hasError('required')">
+        UPI ID is required
+      </mat-error>
+      <mat-error *ngIf="upiForm.get('upiId')?.hasError('pattern')">
+        Invalid UPI ID format
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="full-width" type="submit">
+      Connect UPI
+    </button>
+  </form>
+</mat-card>

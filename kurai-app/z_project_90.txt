@@ -1,0 +1,14 @@
+ addPlanForm = new FormGroup({
+    name: new FormControl('Welcome Plan', [Validators.required]),
+    title: new FormControl('Develoer Welcome Plan', Validators.required),
+    description: new FormControl(['Free will Get 100 free', Validators.required]),
+    amount: new FormControl([0, Validators.required]),
+    numberOfScans: new FormControl([100, Validators.required]),
+    iconImage: new FormControl(null, []),
+    backgroundImage: new FormControl(null, []),
+    planType: new FormControl('FREE', [Validators.required]), // default value
+  });
+
+  # target": "http://52.54.62.71:8080/kurai/",
+
+

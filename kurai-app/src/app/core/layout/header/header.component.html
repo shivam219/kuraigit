@@ -1,0 +1,47 @@
+<!-- <mat-toolbar color="primary">
+  <span class="app-name">Kurai UPI Gateway</span>
+  <span class="spacer"></span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>View Profile</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar> -->
+
+<mat-toolbar color="primary">
+  <img src="/image/logo/Paytm_Travel_Logo.svg" alt="Logo" height="40" />
+  <span class="spacer"></span>
+
+  <!-- <button mat-icon-button (click)="toggle.emit()">
+    <mat-icon>account_circle</mat-icon>
+  </button> -->
+
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>account_circle</mat-icon>
+  </button> -->
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>View Profile</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

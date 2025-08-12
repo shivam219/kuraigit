@@ -1,0 +1,79 @@
+<div class="container mt-4">
+  <mat-card class="px-3 py-3">
+    <h4>Add New Subscription Plan</h4>
+    <form [formGroup]="addPlanForm" (ngSubmit)="submit()">
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Plan Name</mat-label>
+            <input matInput formControlName="name" required>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title" rows="3" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 mb-3">
+          <label class="form-label d-block">Subscription Icon</label>
+          <input type="file" class="form-control" (change)="onFileSelected($event, 'icon')" accept="image/*" />
+        </div>
+
+        <div class="col-6 mb-3">
+          <label class="form-label d-block">Background Image</label>
+          <input type="file" class="form-control" (change)="onFileSelected($event, 'background')" accept="image/*" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Amount (₹)</mat-label>
+            <input matInput type="number" formControlName="amount" required>
+            <mat-error *ngIf="addPlanForm.get('amount')?.hasError('required')">Amount is required</mat-error>
+            <mat-error *ngIf="addPlanForm.get('amount')?.hasError('freePlanAmountError')">
+              Amount must be 0 for FREE plan
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Number of Scanners</mat-label>
+            <input matInput type="number" formControlName="numberOfScans" required>
+              <mat-error *ngIf="addPlanForm.get('numberOfScans')?.hasError('required')">Number of scans is required</mat-error>
+              <mat-error *ngIf="addPlanForm.get('numberOfScans')?.hasError('freePlanScansError')">
+                Number of scans must be more than 100 for FREE plan
+              </mat-error>
+          </mat-form-field>
+
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Plan Type</mat-label>
+            <mat-select formControlName="planType" required>
+              <mat-option *ngFor="let type of planTypes" [value]="type.value">
+                {{ type.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" rows="3" required></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" type="submit" [disabled]="addPlanForm.invalid">Add Plan</button>
+    </form>
+  </mat-card>
+</div>

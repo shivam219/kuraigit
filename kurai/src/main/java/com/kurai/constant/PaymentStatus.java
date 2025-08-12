@@ -1,0 +1,5 @@
+package com.kurai.constant;
+
+public enum PaymentStatus {
+	CREATED, PENDING, FAILED, SUCCESS, CANCELLED, REFUNDED, EXPIRED, PROCESSING, PARTIALLY_REFUNDED, CHARGEBACK
+}

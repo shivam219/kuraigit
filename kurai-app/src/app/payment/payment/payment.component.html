@@ -1,0 +1,12 @@
+<mat-card class="payment-card">
+  <h2>Enter Amount</h2>
+
+  <form [formGroup]="paymentForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" formControlName="amount" placeholder="Enter amount in ₹" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="openPaymentDialog()">Pay</button>
+  </form>
+</mat-card>

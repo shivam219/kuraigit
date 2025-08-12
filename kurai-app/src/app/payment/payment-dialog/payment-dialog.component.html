@@ -1,0 +1,45 @@
+<mat-card class="payment-container p-3">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Left Section: User Info -->
+      <div class="col-md-4 mb-3">
+        <mat-card class="p-3">
+          <h3>{{ user.name }}</h3>
+          <p><strong>Price Summary:</strong> ₹{{ data.amount }}</p>
+          <p><strong>Using as:</strong> {{ data.number }}</p>
+          <p class="text-success fw-semibold">Offers on UPI</p>
+        </mat-card>
+      </div>
+
+      <!-- Middle Section: Payment Option -->
+      <div class="col-md-4 mb-3">
+        <mat-card class="p-3 text-center">
+          <h3 class="mb-3">Payment Options</h3>
+          <p class="fw-bold mb-3">UPI</p>
+          <button mat-raised-button color="primary" (click)="payViaUPI()">
+            Pay ₹{{ data.amount }}
+          </button>
+        </mat-card>
+      </div>
+
+      <!-- Right Section: QR Display -->
+      <div class="col-md-4 mb-3" *ngIf="showQR">
+        <mat-card class="payment-summary text-center p-3">
+          <h3 class="mb-2">You're paying ₹{{ data.amount }}</h3>
+          <!-- <img src="https://www.careerorbits.com/wp-content/uploads/2022/11/google-pay-qr.png"
+               width="200"
+               class="img-fluid"
+               alt="QR Code" /> -->
+              <img *ngIf="qrCodeBase64" [src]="'data:image/png;base64,' + qrCodeBase64"
+                width="300"
+                class="img-fluid"
+                alt="UPI QR Code" />
+
+          <p class="mt-2">Scan with any UPI App</p>
+        </mat-card>
+      </div>
+
+    </div>
+  </div>
+</mat-card>
